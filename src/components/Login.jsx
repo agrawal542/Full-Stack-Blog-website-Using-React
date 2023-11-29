@@ -6,6 +6,8 @@ import {useDispatch} from "react-redux"
 import authService from "../appwrite/auth"
 import {useForm} from "react-hook-form"
 import { useEffect } from 'react'
+import { toast } from "react-hot-toast";
+
 
 function Login() 
 {
@@ -29,6 +31,7 @@ function Login()
                 {
                     console.log(userData)
                     dispatch(authLogin(userData));
+                    toast.success("Login Successfully")
                     navigate("/")
                 }
             }

@@ -3,19 +3,19 @@ import "./App.css";
 import { useDispatch } from "react-redux";
 import authService from "./appwrite/auth";
 import { login, logout } from "./store/authSlice";
-import { Footer,Header } from "./components";
+import { Footer, Header } from "./components";
 import { Outlet } from "react-router-dom";
+import { ThreeDots } from "react-loader-spinner";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     authService
       .getCurrentUser()
       .then((userData) => {
-        if (userData) 
-        {
+        if (userData) {
           dispatch(login({ userData }));
         } else {
           dispatch(logout());
@@ -34,7 +34,19 @@ function App() {
         <Footer />
       </div>
     </div>
-  ) : null;
+  ) : (
+    <div className="w-full h-screen flex justify-center items-center">
+      <ThreeDots 
+        height="80" 
+        width="80" 
+        radius="9"
+        color="#0a2351" 
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClassName=""
+        visible={true}/>
+    </div>
+  );
 }
 
 export default App;
