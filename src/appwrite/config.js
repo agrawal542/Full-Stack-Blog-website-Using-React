@@ -84,6 +84,7 @@ export class Service
     }
 
     // we have get all that postes whose status will be active so for this we use queries(you have to make the indexs in appwriter app )
+    
     async getPosts(queries = [Query.equal("status", "active")]){
         try {
             return await this.databases.listDocuments(
@@ -97,6 +98,24 @@ export class Service
             return false
         }
     }
+
+    async getUserPosts(userId, status = "active") {
+        try {
+            const statusQuery = Query.equal("status", status);
+            const userQuery = Query.equal("userId", userId);
+            
+            const result =  await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                [statusQuery, userQuery], 
+            )
+            return result ;
+        } catch (error) {
+            console.log("Appwrite service :: getPosts :: error", error);
+            return false;
+        }
+    }
+    
 
     // file upload service
     async uploadFile(file){
