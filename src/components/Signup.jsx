@@ -22,8 +22,11 @@ function Signup()
             if (userData) 
             {
                 const userData = await authService.getCurrentUser()
-                if(userData) dispatch(login(userData));
-                navigate("/")
+                if(userData) 
+                {
+                    dispatch(login(userData));
+                    navigate("/")
+                }
             }
         } 
         catch (error) 

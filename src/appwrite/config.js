@@ -99,7 +99,8 @@ export class Service
         }
     }
 
-    async getUserPosts(userId , status = "active") {
+    async getUserPosts(userId,status = "active") {
+         
         try {
             const statusQuery = Query.equal("status", status);
             const userQuery = Query.equal("userId", userId);

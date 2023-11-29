@@ -1,41 +1,43 @@
 import React, {useState, useEffect} from 'react'
 import { Container, PostCard } from '../components'
 import appwriteService from "../appwrite/config";
-import authService from "../appwrite/auth"
-
-
+import authService from '../appwrite/auth';
 
 function AllPosts() 
 {
     const [posts, setPosts] = useState([])
+    const [id,setId] = useState(null) ;
 
+    
     useEffect(() => {
 
-        authService.getCurrentUser().then((x) => {
-
-            console.log(`userid is ${x.$id}`)
-            appwriteService.getUserPosts(x.$id).then((posts) => {
+        authService.getCurrentUser().then(((x)=>{
+            console.log(`id ise ${x.$id}`)
+            setId(x.$id)
+          }
+        ))
+        
+        if(id)
+        {
+            appwriteService.getUserPosts(id).then((posts) => {
                 if (posts) 
                 {
                     // console.log(posts.documents)
                     setPosts(posts.documents)
                 }
             })
-        })
-
-    }, [])
+        }
+    }, [id])
 
 
     // useEffect(() => {
-
-    //     appwriteService.getPosts().then((posts) => {
-    //         if (posts) 
-    //         {
-    //             // console.log(posts.documents)
-    //             setPosts(posts.documents)
-    //         }
-    //     })
-         
+        // appwriteService.getPosts().then((posts) => {
+        //     if (posts) 
+        //     {
+        //         // console.log(posts.documents)
+        //         setPosts(posts.documents)
+        //     }
+        // })
     // }, [])
 
     if (posts.length === 0) 

@@ -5,6 +5,7 @@ import {Button, Input, Logo} from "./index"
 import {useDispatch} from "react-redux"
 import authService from "../appwrite/auth"
 import {useForm} from "react-hook-form"
+import { useEffect } from 'react'
 
 function Login() 
 {
@@ -12,6 +13,8 @@ function Login()
     const dispatch = useDispatch()
     const {register, handleSubmit} = useForm()
     const [error, setError] = useState("")
+
+   
 
     const login = async(data) => 
     {
@@ -22,8 +25,12 @@ function Login()
             if (session) 
             {
                 const userData = await authService.getCurrentUser()
-                if(userData) dispatch(authLogin(userData));
-                navigate("/")
+                if(userData) 
+                {
+                    console.log(userData)
+                    dispatch(authLogin(userData));
+                    navigate("/")
+                }
             }
         } 
         catch (error) 
