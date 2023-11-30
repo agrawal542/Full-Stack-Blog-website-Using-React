@@ -14,9 +14,11 @@ function LogoutBtn()
         authService.logout().then(() => {
             
             toast.success("Logout Successfully")
-            window.location.reload();
-            dispatch(logout())
-            navigate("/")
+            setTimeout(() => {
+              dispatch(logout())
+              navigate("/")
+              window.location.reload();
+            }, 1000);
         })
     }
 
