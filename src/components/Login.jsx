@@ -29,11 +29,11 @@ function Login()
                 {
                     // console.log(userData)
                     toast.success("Login Successfully")
+                    dispatch(authLogin(userData));
+                    navigate("/")
 
                     setTimeout(() => {
                         window.location.reload();
-                        dispatch(authLogin(userData));
-                        navigate("/")
                     }, 1000);
 
                 }
@@ -78,7 +78,7 @@ function Login()
                             })}
                         />
                         <Button type="submit"className="w-full">
-                            Login in
+                            Login
                         </Button>
                     </div>
                 </form>
