@@ -12,10 +12,11 @@ function LogoutBtn()
        
       const logoutHandler = () => {
         authService.logout().then(() => {
+            
             toast.success("Logout Successfully")
+            window.location.reload();
             dispatch(logout())
             navigate("/")
-            window.location.reload();
         })
     }
 

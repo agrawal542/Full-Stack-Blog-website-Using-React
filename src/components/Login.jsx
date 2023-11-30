@@ -28,10 +28,10 @@ function Login()
                 if(userData) 
                 {
                     // console.log(userData)
-                    dispatch(authLogin(userData));
-                    window.location.reload();
-                    navigate("/")
                     toast.success("Login Successfully")
+                    window.location.reload();
+                    dispatch(authLogin(userData));
+                    navigate("/")
                 }
             }
         } 

@@ -5,6 +5,7 @@ import {login} from '../store/authSlice'
 import {Button, Input, Logo} from './index.js'
 import {useDispatch} from 'react-redux'
 import {useForm} from 'react-hook-form'
+import toast from 'react-hot-toast'
 
 function Signup() 
 {
@@ -24,7 +25,9 @@ function Signup()
                 const userData = await authService.getCurrentUser()
                 if(userData) 
                 {
-                    dispatch(login(userData));
+                    toast.success("Sign Up Successfully")
+                    window.location.reload();
+                    dispatch(authLogin(userData));
                     navigate("/")
                 }
             }
