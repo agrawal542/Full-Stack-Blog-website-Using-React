@@ -26,9 +26,11 @@ function Signup()
                 if(userData) 
                 {
                     toast.success("Sign Up Successfully")
-                    window.location.reload();
                     dispatch(authLogin(userData));
                     navigate("/")
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
                 }
             }
         } 

@@ -29,9 +29,11 @@ function Login()
                 {
                     // console.log(userData)
                     toast.success("Login Successfully")
-                    window.location.reload();
                     dispatch(authLogin(userData));
                     navigate("/")
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
                 }
             }
         } 
