@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import appwriteService from "../appwrite/config";
 import { Button, Container } from "../components";
 import parse from "html-react-parser";
-import authService from '../appwrite/auth';
+import { useSelector } from "react-redux";
 
 export default function Post() 
 {
@@ -12,18 +12,13 @@ export default function Post()
     const { slug } = useParams();
     const navigate = useNavigate();
 
-    const [data,setData] = useState(null) ;
+    const temp = useSelector((state)=>state.auth.userData)
+    console.log(`post-> ${temp.$id}`)
 
-    const isAuthor = post && data ? post.userId === data.$id : false;
+    const isAuthor = post && temp ? post.userId === temp.$id : false;
 
     useEffect(() => 
     {
-        authService.getCurrentUser().then(((x)=>{
-            // console.log(`id ise ${x}`)
-            setData(x)
-          }
-        ))
-
         if (slug) 
         {
             appwriteService.getPost(slug).then((post) => {

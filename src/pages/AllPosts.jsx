@@ -2,32 +2,28 @@ import React, {useState, useEffect} from 'react'
 import { Container, PostCard } from '../components'
 import appwriteService from "../appwrite/config";
 import authService from '../appwrite/auth';
+import { useSelector } from 'react-redux';
 
 function AllPosts() 
 {
     const [posts, setPosts] = useState([])
-    const [id,setId] = useState(null) ;
+
+
+    const temp = useSelector((state)=>state.auth.userData)
+    console.log(`All posts ${temp.$id}`)
 
     
     useEffect(() => {
-
-        authService.getCurrentUser().then(((x)=>{
-            console.log(`id ise ${x.$id}`)
-            setId(x.$id)
-          }
-        ))
-        
-        if(id)
+        if(temp.$id)
         {
-            appwriteService.getUserPosts(id).then((posts) => {
+            appwriteService.getUserPosts(temp.$id).then((posts) => {
                 if (posts) 
                 {
-                    // console.log(posts.documents)
                     setPosts(posts.documents)
                 }
             })
         }
-    }, [id])
+    }, [])
 
 
     // useEffect(() => {

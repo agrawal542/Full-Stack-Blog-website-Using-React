@@ -5,7 +5,6 @@ import {Button, Input, Logo} from "./index"
 import {useDispatch} from "react-redux"
 import authService from "../appwrite/auth"
 import {useForm} from "react-hook-form"
-import { useEffect } from 'react'
 import { toast } from "react-hot-toast";
 
 
@@ -17,7 +16,6 @@ function Login()
     const [error, setError] = useState("")
 
    
-
     const login = async(data) => 
     {
         setError("")
@@ -29,10 +27,11 @@ function Login()
                 const userData = await authService.getCurrentUser()
                 if(userData) 
                 {
-                    console.log(userData)
+                    // console.log(userData)
                     dispatch(authLogin(userData));
-                    toast.success("Login Successfully")
+                    window.location.reload();
                     navigate("/")
+                    toast.success("Login Successfully")
                 }
             }
         } 
@@ -75,7 +74,7 @@ function Login()
                             })}
                         />
                         <Button type="submit"className="w-full">
-                            Sign in
+                            Login in
                         </Button>
                     </div>
                 </form>
