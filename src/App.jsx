@@ -25,17 +25,18 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className="min-h-screen flex flex-wrap content-between bg-blue-100 rounded-xl shadow-2xl">
-      <div className="w-full block">
-        <Header />
-        <main>
+    <div className=" w-full h-full flex justify-center items-start">
+      <div className="flex flex-col justify-center items-center">
+          <Header />
+        <main className="w-full flex justify-center items-center bg-red-100">
           <Outlet />
         </main>
-        <Footer />
+          <Footer />
       </div>
     </div>
+      
   ) : (
-    <div className="w-full h-screen flex justify-center items-center">
+    <div className="w-full h- h-full flex justify-center items-center">
       <ThreeDots 
         height="80" 
         width="80" 
