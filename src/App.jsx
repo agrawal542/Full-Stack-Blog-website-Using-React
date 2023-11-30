@@ -25,10 +25,10 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className=" h-full w-fit flex justify-center items-start">
+    <div className="h-full w-fit md:w-full flex justify-center items-center">
       <div className="flex flex-col justify-center items-center">
           <Header />
-        <main className="w-full flex justify-center items-center bg-red-100">
+        <main className="w-full h-full flex justify-center items-center bg-blue-50 py-4">
           <Outlet />
         </main>
           <Footer />
@@ -36,7 +36,7 @@ function App() {
     </div>
       
   ) : (
-    <div className="w-full h- h-full flex justify-center items-center">
+    <div className="w-full h-screen flex justify-center items-center">
       <ThreeDots 
         height="80" 
         width="80" 
