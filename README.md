@@ -29,7 +29,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone [https://github.com/your-username/blog-website.git](https://github.com/agrawal542/blog-website.git)
+   git clone https://github.com/agrawal542/blog-website.git
    cd blog-website
 2. Install dependencies:
    ```bash
