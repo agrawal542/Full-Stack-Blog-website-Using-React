@@ -29,17 +29,16 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/blog-website.git
+   git clone [https://github.com/your-username/blog-website.git](https://github.com/agrawal542/blog-website.git)
    cd blog-website
 2. Install dependencies:
    ```bash
    npm install
 3. Configure Appwrite:
-
-  Sign up for an account on Appwrite
-  Create a new project and obtain API keys
-  Copy .env.example to .env and update it with your Appwrite credentials
+   - Sign up for an account on Appwrite
+   - Create a new project and obtain API keys
+   - Copy .env.example to .env and update it with your Appwrite credentials
 4. Run the application:
-```bash
-npm run start
+  ```bash
+  npm run start
 
