@@ -29,14 +29,13 @@ function Login()
                 {
                     // console.log(userData)
                     toast.success("Login Successfully")
-                    dispatch(authLogin(userData));
-                    navigate("/")
-
                     setTimeout(() => {
+                        dispatch(authLogin(userData));
+                        navigate("/")
                         window.location.reload();
                     }, 1000);
-
                 }
+   
             }
         } 
         catch (error) 
