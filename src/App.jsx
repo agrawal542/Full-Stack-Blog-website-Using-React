@@ -25,8 +25,8 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className="h-full w-fit md:w-full flex justify-center items-center">
-      <div className="flex flex-col justify-center items-center">
+    <div className="h-full w-fit md:w-full flex justify-center items-center border border-res">
+      <div className="w-full flex flex-col justify-center items-center">
           <Header />
         <main className="w-full h-full flex justify-center items-center bg-blue-50 py-4">
           <Outlet />
