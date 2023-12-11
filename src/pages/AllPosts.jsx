@@ -8,9 +8,7 @@ function AllPosts()
 {
     const [posts, setPosts] = useState([])
 
-
     const temp = useSelector((state)=>state.auth.userData)
-    console.log(`All posts ${temp.$id}`)
 
     
     useEffect(() => {
@@ -57,7 +55,7 @@ function AllPosts()
   return (
     <div className='w-full'>
         <Container>
-            <div className='w-full flex flex-col md:flex-row items-center md:justify-start md:items-start border gap-x-10'>
+            <div className='w-full flex-wrap flex flex-col md:flex-row items-center md:justify-start md:items-start border gap-x-10'>
                 {posts.map((post) => (
                     <div key = {post.$id} className='p-2'>
                         <PostCard  {...post} />

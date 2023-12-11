@@ -41,7 +41,7 @@ function Header()
     <header className=' w-full py-4 shadow rounded-t-xl font-semibold bg-yellow-100'>
       <Container>
         <nav className='flex'>
-            <div className='mr-4'>
+            <div className='mr-4 inline-bock px-6 py-2 duration-100 hover:bg-blue-100 rounded-full'>
                 <Link to='/'>
                      <Logo width='70px'/>
                 </Link>

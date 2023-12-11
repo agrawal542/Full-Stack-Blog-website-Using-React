@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import appwriteService from "../appwrite/config";
 import {Container, PostCard} from '../components'
+import { useSelector } from 'react-redux';
 
 function Home() 
 {
 
     const [posts, setPosts] = useState([])
+
 
     useEffect(() => {
         appwriteService.getPosts().then((posts) => {
@@ -36,7 +38,7 @@ function Home()
     return (
         <div className='w-full py-4'>
             <Container>
-                <div className='w-full flex flex-col md:flex-row items-center md:justify-start md:items-start gap-x-10'>
+                <div className='w-full flex flex-wrap flex-col md:flex-row items-center md:justify-start md:items-start gap-x-10'>
                     {posts.map((post) => (
                         <div key = {post.$id} className='py-2'>
                         {console.log(post)}
