@@ -37,5 +37,5 @@ To run this project locally, follow these steps:
    - Copy sample.env to .env and update it with your Appwrite credentials
 4. Run the application:
   ```bash
-  npm run start
+  npm run dev
 
