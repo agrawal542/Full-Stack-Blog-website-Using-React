@@ -14,13 +14,11 @@ You can view the live demo of the website at the following URLs:
   - Developed using React
   - Responsive design
   - User-friendly interface
-  - [Add any additional frontend features]
 
 - **Backend:**
   - Utilizes Appwrite as the backend service
   - User authentication
   - CRUD operations for blog posts
-  - [Add any additional backend features]
 
 ## Getting Started
 
